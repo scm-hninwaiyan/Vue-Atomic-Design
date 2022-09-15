@@ -1,0 +1,27 @@
+// 画面サイズは以下の想定。
+//
+// PCの横幅:1920px
+// タブレットの横幅:1366px
+//
+// PCの横幅をベースに必要な箇所のみタブレットのスタイルを適用しています。
+// 1366pxを基準としたブレイクポイントだけ用意。
+
+$breakpoints-down: (
+  'lg': 'screen and (max-width: 1366px)',
+) !default;
+
+$breakpoints-up: (
+  'xl': 'screen and (min-width: 1367px)',
+) !default;
+
+@mixin mq-down($breakpoint: lg) {
+  @media #{map-get($breakpoints-down, $breakpoint)} {
+    @content;
+  }
+}
+
+@mixin mq-up($breakpoint: xl) {
+  @media #{map-get($breakpoints-up, $breakpoint)} {
+    @content;
+  }
+}

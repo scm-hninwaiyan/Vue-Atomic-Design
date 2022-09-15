@@ -1,0 +1,52 @@
+@import "@/assets/styles/color.scss";
+@import "@/assets/styles/mq.scss";
+
+html {
+    height: 100%;
+    // 1rem = 10px
+    font-size: 62.5%;
+    font-family: Meiryo, sans-serif;
+    // reset.cssでsmoothが指定されている & モーダルでスクロール位置をjsで調整したいので、autoにしておく
+    scroll-behavior: auto;
+}
+
+body {
+    height: 100%;
+    // ベースのフォントサイズは2rem
+    font-size: 2rem;
+    background: $concrete;
+    color: $codGray;
+
+    @include mq-down() {
+      font-size: 1.6rem;
+    }
+}
+
+// modal表示時に背景をスクロールさせないようにする
+// Modal.vueに詳細を記載
+.no-scroll {
+    position: fixed;
+    width: 100%;
+};
+
+#app {
+    height: 100%;
+    // modalの親要素
+    position: relative;
+}
+
+li {
+    list-style: none;
+}
+
+.lg-hidden {
+  @include mq-down() {
+    display: none !important;
+  }
+}
+
+.xl-hidden {
+  @include mq-up() {
+    display: none !important;
+  }
+}
